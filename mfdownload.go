@@ -14,7 +14,7 @@ func MfGetDownloadlink(session, quick string) string {
 	dLinkUrl, err := url.Parse("http://www.mediafire.com/api/1.4/file/get_links.php")
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(101)
+		return ""
 	}
 
 	dLinkParams := dLinkUrl.Query()

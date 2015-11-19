@@ -126,7 +126,7 @@ func Sync(mfuser, mfpass, ssuser, sspass string, o io.Writer) bool {
 	sstoken, err := SsGetToken(ssapi)
 	if err != nil {
 		fmt.Fprintln(o, err)
-		os.Exit(2)
+		return false
 	}
 	sssessionkey, err := SsLogin(sstoken, ssuser, sspass)
 	if err != nil {
@@ -255,7 +255,7 @@ func Sync(mfuser, mfpass, ssuser, sspass string, o io.Writer) bool {
 				
 						if strings.Contains(string(resp_body), "fail") {
 							fmt.Fprintln(o, string(resp_body))
-							os.Exit(77)
+							return false
 						} else {
 							//fmt.Fprintln(m.Path + " UPLOADED")
 						}

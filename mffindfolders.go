@@ -24,7 +24,7 @@ func MfFindFolders(session, root, mfpath string, depth int) {
 	dInfoUrl, err := url.Parse("https://www.mediafire.com/api/1.4/folder/get_info.php")
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(101)
+		return
 	}
 
 	dInfoUrlParams := dInfoUrl.Query()
@@ -52,7 +52,7 @@ func MfFindFolders(session, root, mfpath string, depth int) {
 	dFilesUrl, err := url.Parse("https://www.mediafire.com/api/1.4/folder/get_content.php")
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(102)
+		return
 	}
 
 	dFilesUrlParams := dFilesUrl.Query()
@@ -82,7 +82,7 @@ func MfFindFolders(session, root, mfpath string, depth int) {
 	dContentUrl, err := url.Parse("https://www.mediafire.com/api/1.4/folder/get_content.php")
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(103)
+		return
 	}
 
 	dContentUrlParams := dContentUrl.Query()
