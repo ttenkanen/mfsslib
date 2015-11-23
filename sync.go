@@ -9,7 +9,6 @@ import (
 	"net/url"
 	"strings"
 	"fmt"
-	"os"
 	"io"
 	"io/ioutil"
 )
@@ -255,7 +254,7 @@ func Sync(mfuser, mfpass, ssuser, sspass string, o io.Writer) bool {
 				
 						if strings.Contains(string(resp_body), "fail") {
 							fmt.Fprintln(o, string(resp_body))
-							return false
+							return
 						} else {
 							//fmt.Fprintln(m.Path + " UPLOADED")
 						}
